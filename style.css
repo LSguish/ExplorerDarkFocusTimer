@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.lightMode, .darkMode{
+  position: absolute;
+  top: 6.4rem;
+  right: 6.4rem;
+  
+  cursor: pointer;
+}
+
+body {
+  --prime-color: #FFFFFF;
+  --secondary-color: #E1E1E6;
+  --hover-active:#02799D;
+  --button-color: #323238;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+
+  background-color: var(--prime-color);
+}
+
+body.night {
+  --prime-color: #000000;
+  --secondary-color: #29292E;
+  --hover-active: yellow;
+  --button-color: #ffffff;
+  
+  background-color: var(--prime-color);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.stopwatch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 82rem;
+  margin: auto;
+}
+
+#timer {
+  font-size: 12.6rem;
+  line-height: 15rem;
+  margin-bottom: 2rem;
+  display: flex;
+  color: var(--button-color);
+}
+
+#controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choicePanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.choicePanel button {
+  position: relative;
+}
+
+.inputVol {
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+}
+
+.inputVol input {
+  max-width: 9rem;
+}
+
+.inputVol input[type="range"] {
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  height: 4px;
+  background: var(--button-color);
+}
+
+.inputVol input[type="range"]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 25px;
+  background: var(--button-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.choicePanel button:hover .inputVol input[type="range"]::-webkit-slider-thumb,
+.choicePanel button:hover .inputVol input[type="range"], .choicePanel button.check .inputVol input[type="range"]::-webkit-slider-thumb,
+.choicePanel button.check .inputVol input[type="range"] {
+  background: var(--prime-color);
+}
+
+.choicePanel button svg path:first-child {
+  fill: var(--secondary-color);
+}
+
+#controls button:hover svg path, .lightMode:hover svg path, .darkMode:hover svg path, .choicePanel button:hover svg path:first-child, .choicePanel button.check svg path:first-child {
+  fill: var(--hover-active);
+}
+
+#controls button svg path, .lightMode svg path, .darkMode svg path, .choicePanel button svg path:last-child {
+  fill: var(--button-color);
+}
+
+.choicePanel button:hover svg path:last-child,
+.choicePanel button.check svg path:last-child {
+  fill: var(--prime-color);
+}
+
+
+@media (max-width: 930px) {
+  .lightMode, .darkMode {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .stopwatch {
+    flex-direction: column;
+    gap: 5rem;
+  }
+}
